@@ -8,20 +8,7 @@ import { VitePWA } from "vite-plugin-pwa";
 
 // https://vitejs.dev/config/
 export default ({ mode }) => {
-    // 加载环境变量
-    const env = loadEnv(mode, process.cwd());
-
-    return defineConfig({
-        server: {
-            proxy: {
-                "/api": {
-                    target: env.VITE_API_BASE_URL,
-                    changeOrigin: true,
-                    rewrite: (path) => path.replace(/^\/api/, ""),
-                },
-            },
-        },
-    });
+   
     defineConfig({
         plugins: [
             vue(),
@@ -87,7 +74,7 @@ export default ({ mode }) => {
             ssr: false,
             proxy: {
                 "/api": {
-                    target: loadEnv(mode, process.cwd()).VITE_MUSIC_API,
+                    target: loadEnv(mode, process.cwd()).VITE_API_BASE_URL,
                     changeOrigin: true,
                     rewrite: (path) => path.replace(/^\/api/, ""),
                 },
