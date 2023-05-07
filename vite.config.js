@@ -43,7 +43,8 @@ export default ({ mode }) =>
               },
             },
             {
-              urlPattern: /(.*?)\.(webp|png|jpe?g|svg|gif|bmp|psd|tiff|tga|eps)/,
+              urlPattern:
+                /(.*?)\.(webp|png|jpe?g|svg|gif|bmp|psd|tiff|tga|eps)/,
               handler: "CacheFirst",
               options: {
                 cacheName: "image-cache",
